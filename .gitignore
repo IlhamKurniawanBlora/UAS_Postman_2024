@@ -1,0 +1,30 @@
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+
+# Direktori lingkungan virtual Python
+venv/
+
+# File lingkungan
+.env
+
+# Output direktori build
+build/
+dist/
+
+# MacOS file
+.DS_Store
+
+# Windows thumbnail cache files
+Thumbs.db
+
+# IDE directories and files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln

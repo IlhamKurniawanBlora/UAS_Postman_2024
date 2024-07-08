@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Mahasiswa</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>Daftar Mahasiswa</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nama</th>
+                <th>Program Studi</th>
+                <th>Universitas</th>
+                <th>Deskripsi</th>
+            </tr>
+        </thead>
+        <tbody id="mahasiswaList">
+            <!-- Data mahasiswa akan ditambahkan secara dinamis menggunakan JavaScript -->
+        </tbody>
+    </table>
+
+    <script>
+        
+        // Fungsi untuk menampilkan data mahasiswa
+        const showMahasiswa = async () => {
+            try {
+                const response = await fetch('http://localhost:3000/mahasiswa'); // Ganti URL sesuai dengan endpoint API Anda
+                const data = await response.json();
+
+                const mahasiswaList = document.getElementById('mahasiswaList');
+                data.forEach(mahasiswa => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${mahasiswa.id}</td>
+                        <td>${mahasiswa.nama}</td>
+                        <td>${mahasiswa.prodi}</td>
+                        <td>${mahasiswa.universitas}</td>
+                        <td>${mahasiswa.deskripsi}</td>
+                    `;
+                    mahasiswaList.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        // Panggil fungsi untuk menampilkan data mahasiswa saat halaman dimuat
+        showMahasiswa();
+    </script>
+</body>
+</html>

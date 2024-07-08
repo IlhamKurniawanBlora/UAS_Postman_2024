@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD Mahasiswa</title>
+  <link rel="stylesheet" href="style.css">
+    <style>
+        #toggleButton {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        #toggleButton:hover {
+            background-color: #0056b3;
+        }
+
+        /* Tambahan style untuk form pencarian */
+        #searchForm {
+            margin-top: 10px;
+        }
+
+        #searchForm label,
+        #searchForm input,
+        #searchForm button {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+  <div class="container">
+    <h1>CRUD Mahasiswa</h1>
+    <!-- Form untuk menampilkan semua data mahasiswa -->
+    <div id="allMahasiswa">
+      <h2>Semua Data Mahasiswa:</h2>
+      <ul id="allMahasiswaList">
+        <!-- Data mahasiswa akan ditampilkan di sini -->
+      </ul>
+    </div>
+
+    <hr>
+
+    <!-- Form untuk memilih data berdasarkan ID -->
+    <form id="selectForm">
+      <label for="idSelect">Pilih Data Mahasiswa Berdasarkan ID:</label>
+      <input type="number" id="idSelect" name="idSelect" required>
+      <button type="submit">Pilih</button>
+    </form>
+
+    <hr>
+
+    <!-- Form untuk menampilkan data berdasarkan ID -->
+    <div id="result">
+      <h2>Hasil Pemilihan Data:</h2>
+      <ul id="mahasiswaData">
+        <!-- Data mahasiswa akan ditampilkan di sini -->
+      </ul>
+    </div>
+
+    <hr>
+
+    <!-- Form untuk menambah dan mengubah data mahasiswa -->
+    <!-- Form untuk menambah dan mengubah data mahasiswa -->
+<form id="mahasiswaForm">
+    <h2 id="formTitle">Tambah Data Mahasiswa:</h2>
+    <label for="nama">Nama:</label>
+    <input type="text" id="nama" name="nama" required>
+    <label for="prodi">Program Studi:</label>
+    <input type="text" id="prodi" name="prodi" required>
+    <label for="universitas">Universitas:</label>
+    <input type="text" id="universitas" name="universitas" required>
+    <label for="deskripsi">Deskripsi:</label>
+    <textarea id="deskripsi" name="deskripsi" rows="4" required></textarea>
+    <button type="submit" id="submitButton">Simpan</button>
+  </form>
+  
+  <!-- Tombol untuk toggle mode -->
+  <button id="toggleButton">Ubah Data Mahasiswa</button>
+  
+  <!-- Form untuk mencari mahasiswa saat dalam mode edit -->
+  <form id="searchForm" style="display:none;">
+    <label for="searchId">Cari Mahasiswa ID:</label>
+    <input type="text" id="searchId" name="searchId" required>
+    <button type="button" id="searchButton">Cari</button>
+  </form>
+    <hr>
+
+    <!-- Form untuk menghapus data berdasarkan ID -->
+    <form id="deleteForm">
+      <h2>Hapus Data Mahasiswa:</h2>
+      <label for="idDelete">ID Mahasiswa:</label>
+      <input type="number" id="idDelete" name="idDelete" required>
+      <button type="submit">Hapus</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
